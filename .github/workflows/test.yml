@@ -26,30 +26,8 @@
 name: 'Run tests'
 
 on:
-  workflow_call:
-    inputs:
-      platform:
-        required: true
-        type: string
-      bootjdk-platform:
-        required: true
-        type: string
-      runs-on:
-        required: true
-        type: string
-      xcode-toolset-version:
-        required: false
-        type: string
-      dry-run:
-        required: false
-        type: boolean
-        default: false
-      debug-suffix:
-        required: false
-        type: string
-      static-suffix:
-        required: false
-        type: string
+  workflow_dispatch:
+  push:
 
 env:
   # These are needed to make the MSYS2 bash work properly
