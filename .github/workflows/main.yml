@@ -27,9 +27,6 @@ name: 'OpenJDK GHA Sanity Checks'
 
 on:
   push:
-    branches-ignore:
-      - pr/*
-      - main
   workflow_dispatch:
     inputs:
       platforms:
