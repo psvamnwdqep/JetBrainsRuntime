@@ -26,8 +26,24 @@
 name: 'Build (cross-compile)'
 
 on:
-  workflow_dispatch:
-  push:
+  workflow_call:
+    inputs:
+      gcc-major-version:
+        required: true
+        type: string
+      extra-conf-options:
+        required: false
+        type: string
+      configure-arguments:
+        required: false
+        type: string
+      make-arguments:
+        required: false
+        type: string
+      dry-run:
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   build-cross-compile:

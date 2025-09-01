@@ -26,8 +26,51 @@
 name: 'Build (linux)'
 
 on:
-  workflow_dispatch:
-  push:
+  workflow_call:
+    inputs:
+      platform:
+        required: true
+        type: string
+      extra-conf-options:
+        required: false
+        type: string
+      make-target:
+        required: false
+        type: string
+        default: 'product-bundles test-bundles'
+      debug-levels:
+        required: false
+        type: string
+        default: '[ "debug", "release" ]'
+      gcc-major-version:
+        required: true
+        type: string
+      gcc-package-suffix:
+        required: false
+        type: string
+        default: ''
+      apt-architecture:
+        required: false
+        type: string
+      apt-extra-packages:
+        required: false
+        type: string
+      configure-arguments:
+        required: false
+        type: string
+      make-arguments:
+        required: false
+        type: string
+      dry-run:
+        required: false
+        type: boolean
+        default: false
+      bundle-suffix:
+        required: false
+        type: string
+      static-suffix:
+        required: false
+        type: string
 
 jobs:
   build-linux:
